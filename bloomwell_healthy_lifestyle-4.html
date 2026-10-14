@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#2f6049">
+<title>BloomWell | Healthy Lifestyle</title>
+<style>
+:root{--green:#2f6049;--green2:#497b5c;--cream:#fffaf0;--yellow:#f5c84c;--ink:#24352b;--muted:#68766c;--pink:#f7e5dc;--white:#fff}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:Arial,Helvetica,sans-serif;line-height:1.6}
+header{background:var(--green);color:white;padding:18px 6%;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
+.brand{font-size:1.45rem;font-weight:800;letter-spacing:.4px}.brand span{color:var(--yellow)}nav{display:flex;gap:8px;flex-wrap:wrap}
+nav button{border:1px solid #ffffff55;background:transparent;color:white;border-radius:22px;padding:9px 14px;font-weight:700;cursor:pointer}
+nav button:hover,nav button.active{background:var(--yellow);color:#26372b;border-color:var(--yellow)}
+.hero{padding:58px 6% 48px;background:linear-gradient(120deg,#e9f2e4,#fff3c7);display:grid;grid-template-columns:1.25fr .75fr;gap:24px;align-items:center}
+.eyebrow{text-transform:uppercase;letter-spacing:2px;font-size:.78rem;font-weight:800;color:var(--green2)}
+h1{font-size:clamp(2.2rem,5vw,4.4rem);line-height:1.04;margin:12px 0 18px;color:var(--green);letter-spacing:-1.5px}
+.hero p{max-width:640px;font-size:1.08rem;color:#506357}
+.hero-art{display:flex;justify-content:center;align-items:center;min-height:220px}
+.sunflower{font-size:clamp(7rem,17vw,13rem);filter:drop-shadow(0 10px 10px #806c2830);animation:float 4s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-8px) rotate(3deg)}}
+.cta{border:0;border-radius:24px;background:var(--green);color:white;padding:13px 20px;font-weight:800;cursor:pointer;margin-top:10px}.cta:hover{background:var(--green2)}
+main{padding:32px 6% 60px}.intro{display:flex;align-items:end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:18px}
+h2{font-size:clamp(1.6rem,3vw,2.25rem);line-height:1.15;color:var(--green);margin:0 0 8px}
+.section-note{color:var(--muted);margin:0}
+.quick-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:22px 0 38px}
+.quick{background:white;border:1px solid #e7eadf;border-radius:18px;padding:18px;box-shadow:0 6px 18px #24352b08}
+.quick .emoji{font-size:1.8rem}.quick h3{margin:7px 0 3px;font-size:1.03rem}.quick p{margin:0;color:var(--muted);font-size:.92rem}
+.panel{display:none;animation:appear .25s ease}.panel.active{display:block}
+@keyframes appear{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+.panel-head{display:flex;align-items:center;gap:13px;margin:10px 0 18px}.panel-icon{width:54px;height:54px;border-radius:16px;display:grid;place-items:center;background:#f7e6a9;font-size:1.8rem}
+.card{background:white;border:1px solid #e7eadf;border-radius:18px;padding:20px;margin-bottom:16px;box-shadow:0 6px 18px #24352b07}
+.table-wrap{overflow-x:auto;border-radius:14px;border:1px solid #e8e9e0}
+table{border-collapse:collapse;width:100%;min-width:580px;background:white}th,td{text-align:left;padding:13px 15px;border-bottom:1px solid #eceee7}th{background:#e9f2e4;color:var(--green);font-size:.9rem}tr:last-child td{border-bottom:0}td:first-child{font-weight:700;white-space:nowrap}
+.tag{display:inline-block;background:#f7edc7;border-radius:20px;padding:3px 9px;font-size:.8rem;font-weight:700}
+.tip{background:#eef5e9;border-left:4px solid var(--green2);padding:14px 16px;border-radius:0 12px 12px 0;margin-top:16px}
+.two-col{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.checklist{list-style:none;padding:0;margin:0}.checklist li{padding:10px 0;border-bottom:1px solid #edf0e8;display:flex;gap:10px;align-items:flex-start}.checklist li:last-child{border-bottom:0}.checklist input{accent-color:var(--green);margin-top:6px;width:17px;height:17px;flex-shrink:0}.checklist label{cursor:pointer}
+.progress-line{height:9px;background:#e9eee5;border-radius:10px;overflow:hidden;margin:12px 0}.progress-fill{height:100%;width:0;background:var(--green2);transition:width .2s}
+.water-row{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.water{border:1px solid #cbdacb;background:#f4f8f0;border-radius:12px;padding:10px 13px;cursor:pointer}.water.done{background:#d6ead5;border-color:var(--green2)}
+.quote{background:var(--pink);padding:24px;border-radius:18px;font-size:1.1rem;font-weight:700;color:#754c3b}
+footer{background:#233c2e;color:#eaf2e8;padding:26px 6%;text-align:center}footer p{margin:5px}
+.small{font-size:.88rem;color:var(--muted)}
+@media(max-width:800px){.hero{grid-template-columns:1fr;padding-top:38px}.hero-art{min-height:130px}.sunflower{font-size:7rem}.quick-grid{grid-template-columns:repeat(2,1fr)}.two-col{grid-template-columns:1fr}header{align-items:flex-start}nav{width:100%}nav button{font-size:.83rem;padding:8px 10px}}
+@media(max-width:430px){.quick-grid{grid-template-columns:1fr 1fr}.quick{padding:13px}.hero{padding-left:5%;padding-right:5%}main{padding-left:5%;padding-right:5%}}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">🌿 Bloom<span>Well</span></div>
+  <nav aria-label="Main sections">
+    <button class="active" data-panel="overview">Home</button>
+    <button data-panel="food">Healthy Food</button>
+    <button data-panel="routine">Daily Routine</button>
+    <button data-panel="hygiene">Hygiene</button>
+    <button data-panel="selfcare">Self-Care</button>
+  </nav>
+</header>
+<section class="hero">
+  <div>
+    <div class="eyebrow">Small habits · Brighter days</div>
+    <h1>Grow a healthier,<br>happier you.</h1>
+    <p>Your friendly guide to balanced meals, everyday movement, personal hygiene and self-care. Choose a section below to explore simple habits you can make your own.</p>
+    <button class="cta" onclick="showPanel('food')">Explore Healthy Living →</button>
+  </div>
+  <div class="hero-art" aria-label="Sunflower illustration"><div class="sunflower">🌻</div></div>
+</section>
+<main>
+  <section id="overview" class="panel active">
+    <div class="intro"><div><h2>Your wellness garden</h2><p class="section-note">Four little ways to care for yourself every day.</p></div><span class="tag">Start small • Stay consistent</span></div>
+    <div class="quick-grid">
+      <article class="quick"><div class="emoji">🥗</div><h3>Eat Well</h3><p>Enjoy varied meals with vegetables, fruit, grains and protein.</p></article>
+      <article class="quick"><div class="emoji">💧</div><h3>Hydrate</h3><p>Keep water nearby and drink regularly throughout the day.</p></article>
+      <article class="quick"><div class="emoji">🧼</div><h3>Stay Clean</h3><p>Wash hands, care for your teeth and wear clean clothes.</p></article>
+      <article class="quick"><div class="emoji">🌻</div><h3>Care for You</h3><p>Rest, move your body, connect with others and make time to relax.</p></article>
+    </div>
+    <div class="two-col">
+      <div class="card"><h3>✅ Today's healthy habit checklist</h3><p class="small">Tick each habit as you complete it. Your progress updates automatically.</p>
+        <ul class="checklist" id="dailyChecks">
+          <li><input type="checkbox" id="c1"><label for="c1">Eat a balanced breakfast</label></li>
+          <li><input type="checkbox" id="c2"><label for="c2">Drink water regularly</label></li>
+          <li><input type="checkbox" id="c3"><label for="c3">Move, stretch or walk</label></li>
+          <li><input type="checkbox" id="c4"><label for="c4">Wash hands before eating</label></li>
+          <li><input type="checkbox" id="c5"><label for="c5">Take a calm break</label></li>
+          <li><input type="checkbox" id="c6"><label for="c6">Make time for a good night's sleep</label></li>
+        </ul>
+        <div class="progress-line"><div class="progress-fill" id="progressFill"></div></div><div id="progressText" class="small">0 of 6 habits completed</div>
+      </div>
+      <div class="quote">“You don't have to change everything today. One kind, healthy choice is a beautiful start.”<div style="font-size:3rem;text-align:right">🌼</div></div>
+    </div>
+  </section>
+
+  <section id="food" class="panel">
+    <div class="panel-head"><div class="panel-icon">🥗</div><div><h2>Healthy Food Chart</h2><p class="section-note">A sample daily meal routine with familiar food choices.</p></div></div>
+    <div class="card"><div class="table-wrap"><table><thead><tr><th>Time</th><th>Meal</th><th>Healthy options</th><th>Helpful tip</th></tr></thead><tbody>
+      <tr><td>7:00–8:00 AM</td><td>Start your day</td><td>Water; fruit if you like</td><td>Begin gently; no special detox drink is needed.</td></tr>
+      <tr><td>8:00–9:00 AM</td><td>Breakfast</td><td>Poha, oats, dalia, idli, eggs or paneer; add fruit where possible</td><td>Include a protein-rich food when you can.</td></tr>
+      <tr><td>11:00 AM</td><td>Small snack</td><td>Seasonal fruit, curd, or a small handful of nuts</td><td>Choose a snack that suits your appetite.</td></tr>
+      <tr><td>1:00–2:00 PM</td><td>Lunch</td><td>Roti or rice, dal/beans, vegetables, curd and salad</td><td>Try to include different food groups.</td></tr>
+      <tr><td>4:00–5:00 PM</td><td>Evening snack</td><td>Roasted chana, makhana, sprouts, or homemade snack</td><td>Water or unsweetened drinks are good options.</td></tr>
+      <tr><td>7:00–8:30 PM</td><td>Dinner</td><td>Roti/rice with dal, vegetables, paneer, beans or another protein</td><td>Eat comfortably and at a pace that feels good.</td></tr>
+      <tr><td>Before bed</td><td>Wind down</td><td>Water if thirsty; a quiet, screen-light evening routine</td><td>Keep a regular sleep schedule.</td></tr>
+    </tbody></table></div>
+    <div class="tip"><strong>Build a balanced plate:</strong> aim for plenty of vegetables and fruit, include grains or other starchy foods, and add protein foods such as lentils, beans, dairy, eggs, tofu or nuts. Adapt portions to your age, activity, culture, appetite and health needs.</div></div>
+    <div class="two-col"><div class="card"><h3>🌈 Eat a variety</h3><ul><li>Choose different-coloured vegetables and fruits.</li><li>Include pulses, beans or other protein foods.</li><li>Prefer whole grains often when available.</li><li>Limit frequent sugary drinks and very salty packaged snacks.</li></ul></div><div class="card"><h3>💧 Water reminder</h3><p>Drink water regularly, especially in hot weather or during activity. Needs vary with age, activity, climate and health—follow any clinician's fluid advice.</p><div class="water-row" id="waterRow"><button class="water">＋ Glass 1</button><button class="water">＋ Glass 2</button><button class="water">＋ Glass 3</button><button class="water">＋ Glass 4</button><button class="water">＋ Glass 5</button><button class="water">＋ Glass 6</button></div><p id="waterText" class="small">Tap a glass when you drink water. This is a simple tracker, not a required target.</p></div></div>
+  </section>
+
+  <section id="routine" class="panel">
+    <div class="panel-head"><div class="panel-icon">☀️</div><div><h2>Daily Healthy Routine</h2><p class="section-note">A flexible example—adjust the times to your own day.</p></div></div>
+    <div class="card"><div class="table-wrap"><table><thead><tr><th>Part of day</th><th>Simple routine</th><th>Why it helps</th></tr></thead><tbody>
+      <tr><td>Morning</td><td>Wake up, brush teeth, wash face, drink water and get ready.</td><td>Starts the day with basic care.</td></tr>
+      <tr><td>After waking</td><td>Try 5–10 minutes of gentle stretching or a short walk.</td><td>Helps you ease into movement.</td></tr>
+      <tr><td>Breakfast time</td><td>Eat a balanced breakfast and plan your priorities.</td><td>Supports energy and daily focus.</td></tr>
+      <tr><td>During the day</td><td>Take movement breaks, eat regular meals and drink water.</td><td>Breaks up long periods of sitting.</td></tr>
+      <tr><td>Evening</td><td>Walk, play a sport, dance, cycle or do another activity you enjoy.</td><td>Builds movement into everyday life.</td></tr>
+      <tr><td>Night</td><td>Brush teeth, prepare for tomorrow and relax without rushing.</td><td>Creates a calming bedtime routine.</td></tr>
+      <tr><td>Sleep</td><td>Keep a consistent bedtime and allow enough sleep for your age.</td><td>Rest supports learning, mood and recovery.</td></tr>
+    </tbody></table></div></div>
+    <div class="two-col"><div class="card"><h3>🏃 Move in a way you enjoy</h3><p>Walking, dancing, cycling, yoga, sports or active play all count. Start at a comfortable level and build gradually. Children and adults have different activity needs.</p></div><div class="card"><h3>🌙 Make room for rest</h3><p>Try a quiet activity before bed, keep your sleep space comfortable and reduce late-night screen use if it affects your sleep. Sleep needs depend on age.</p></div></div>
+  </section>
+
+  <section id="hygiene" class="panel">
+    <div class="panel-head"><div class="panel-icon">🧼</div><div><h2>Personal Hygiene</h2><p class="section-note">Simple ways to keep yourself and your surroundings clean.</p></div></div>
+    <div class="two-col">
+      <div class="card"><h3>👐 Hand hygiene</h3><ul class="checklist"><li><input type="checkbox" id="h1"><label for="h1">Wash with soap and clean running water for at least 20 seconds.</label></li><li><input type="checkbox" id="h2"><label for="h2">Wash before preparing or eating food.</label></li><li><input type="checkbox" id="h3"><label for="h3">Wash after using the toilet, coughing, sneezing or touching rubbish.</label></li><li><input type="checkbox" id="h4"><label for="h4">If soap and water are unavailable, use an appropriate alcohol-based hand sanitizer.</label></li></ul></div>
+      <div class="card"><h3>🪥 Body and oral care</h3><ul class="checklist"><li><input type="checkbox" id="h5"><label for="h5">Brush teeth twice daily with fluoride toothpaste.</label></li><li><input type="checkbox" id="h6"><label for="h6">Bathe regularly and wash areas that sweat.</label></li><li><input type="checkbox" id="h7"><label for="h7">Wear clean clothes and change socks and underwear daily.</label></li><li><input type="checkbox" id="h8"><label for="h8">Keep nails clean; avoid sharing personal grooming items.</label></li></ul></div>
+      <div class="card"><h3>🥣 Food hygiene</h3><ul><li>Wash produce under clean running water.</li><li>Keep raw and cooked foods separate.</li><li>Cook food thoroughly and refrigerate perishables promptly.</li><li>Use clean utensils and safe drinking water.</li></ul></div>
+      <div class="card"><h3>🏡 Clean surroundings</h3><ul><li>Put rubbish in a covered bin and empty it regularly.</li><li>Keep bathrooms and frequently touched surfaces clean.</li><li>Keep stagnant water from collecting around the home.</li><li>Allow rooms to air out when safe and practical.</li></ul></div>
+    </div>
+    <div class="tip">Hygiene is about regular, practical habits—not needing to be perfect. Use products as directed and avoid harsh products that irritate your skin.</div>
+  </section>
+
+  <section id="selfcare" class="panel">
+    <div class="panel-head"><div class="panel-icon">🌻</div><div><h2>Self-Care & Mindful Living</h2><p class="section-note">Care for your mind, body and confidence with small moments of kindness.</p></div></div>
+    <div class="quick-grid">
+      <article class="quick"><div class="emoji">🌼</div><h3>Pause and breathe</h3><p>Take a few slow, comfortable breaths and relax your shoulders.</p></article>
+      <article class="quick"><div class="emoji">📓</div><h3>Write it down</h3><p>Note one thing you feel grateful for or one goal for tomorrow.</p></article>
+      <article class="quick"><div class="emoji">🎨</div><h3>Enjoy a hobby</h3><p>Read, draw, listen to music, garden or do something you love.</p></article>
+      <article class="quick"><div class="emoji">💛</div><h3>Stay connected</h3><p>Talk to someone you trust and ask for support when you need it.</p></article>
+    </div>
+    <div class="two-col"><div class="card"><h3>🌻 Your 5-minute reset</h3><ol><li>Put your phone aside for a moment.</li><li>Relax your jaw and shoulders.</li><li>Breathe slowly without forcing it.</li><li>Notice what you can see, hear and feel.</li><li>Choose one small next step.</li></ol></div><div class="card"><h3>🌱 Healthy boundaries</h3><ul><li>Take breaks when you need them.</li><li>Speak to yourself as kindly as you would to a friend.</li><li>Make time for people and activities that support you.</li><li>Ask a trusted person or professional for help if stress feels too heavy.</li></ul></div></div>
+    <div class="quote">Like a sunflower turns toward the light, give yourself permission to look for little moments of hope, rest and joy. 🌻</div>
+  </section>
+  <p class="small" style="margin-top:28px">Wellness note: This website shares general educational ideas, not personalised medical advice. If you have a medical condition, food allergy, special dietary needs or clinician's instructions, adapt the routine with a qualified health professional.</p>
+</main>
+<footer><p><strong>🌿 BloomWell — Healthy Lifestyle Guide</strong></p><p>Eat well • Move often • Stay clean • Be kind to yourself</p><p style="font-size:.8rem;color:#c8d9ca">A simple guide to building healthy habits, one day at a time.</p></footer>
+<script>
+function showPanel(id){
+  document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('active',p.id===id));
+  document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('active',b.dataset.panel===id));
+  if(id==='overview') window.scrollTo({top:0,behavior:'smooth'});
+  else document.querySelector('main').scrollIntoView({behavior:'smooth',block:'start'});
+}
+document.querySelectorAll('nav button').forEach(b=>b.addEventListener('click',()=>showPanel(b.dataset.panel)));
+document.querySelectorAll('.checklist input[type=checkbox]').forEach(input=>input.addEventListener('change',()=>{
+  const checks=[...document.querySelectorAll('#dailyChecks input')];
+  const done=checks.filter(c=>c.checked).length;
+  document.getElementById('progressFill').style.width=(done/checks.length*100)+'%';
+  document.getElementById('progressText').textContent=done+' of '+checks.length+' habits completed';
+}));
+document.querySelectorAll('#waterRow .water').forEach(b=>b.addEventListener('click',()=>{
+  b.classList.toggle('done');
+  const n=document.querySelectorAll('#waterRow .water.done').length;
+  document.getElementById('waterText').textContent=n+' glass'+(n===1?'':'es')+' marked. Remember, your needs vary—drink to thirst and follow any medical advice.';
+}));
+</script>
+</body>
+</html>
